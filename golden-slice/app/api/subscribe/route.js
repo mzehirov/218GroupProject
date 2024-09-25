@@ -1,9 +1,10 @@
 import mailchimp from '@mailchimp/mailchimp_marketing';
-
+const privateKey = process.env.MAILCHIMP_API_KEY
 mailchimp.setConfig({
-  apiKey: 'd10c6b6c6208daff6c1a1544eee56b4b-us21',
+  apiKey: privateKey,
   server: 'us21',
 });
+console.log('MAILCHIMP_APIKEY', process.env.MAILCHIMP_APIKEY);
 
 export async function POST(request) {
     const {email} = await request.json();
